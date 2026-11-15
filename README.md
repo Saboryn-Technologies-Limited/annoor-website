@@ -2,6 +2,8 @@
 
 Admission portal for Annoor International Islamic Academy, by SABORYN TECHNOLOGIES LIMITED.
 
+**Version 3. To update the website, upload ONLY `index.html` to the GitHub repository (Add file > Upload files). The `supabase` folder is for reference: its files are pasted into Supabase, not GitHub. After uploading, the footer of the website should say "Portal v3".**
+
 ## What is in this package
 - `index.html`: the whole website (Home, Apply, parent dashboard, form, staff login, admin). It runs in **demo mode** until you fill in the Supabase keys.
 - `supabase/setup.sql`: database tables, security rules, private file storage.
@@ -56,3 +58,11 @@ Only upload photos of children if the school has given permission.
 - Move Supabase to a plan that does not pause and keeps backups.
 - Connect custom SMTP for emails.
 - Agree in writing who receives the fees and what Saboryn charges for hosting and support.
+
+## Update 1: emails, interview dates, confirmation pop-ups
+1. Supabase > SQL Editor: run `supabase/update-1.sql`.
+2. Brevo (brevo.com, free plan): create an account, add and verify a sender email (best: an address on your own domain, with its DNS records added), then create an API key (SMTP & API > API Keys).
+3. Supabase > Edge Functions > Secrets: add `BREVO_API_KEY` (the key) and `MAIL_FROM` (the verified sender email).
+4. Deploy a new function named exactly `application-mail`, pasting `supabase/functions/application-mail/index.ts`. Turn **Verify JWT off**, then save.
+5. Upload the new `index.html` to GitHub.
+6. In the admin page, open **Interview settings** and set the time, venue, how soon interviews start, the daily limit and the list of items to bring (confirm these with the school).
