@@ -2,7 +2,7 @@
 
 Admission portal for Annoor International Islamic Academy, by SABORYN TECHNOLOGIES LIMITED.
 
-**Version 3. To update the website, upload ONLY `index.html` to the GitHub repository (Add file > Upload files). The `supabase` folder is for reference: its files are pasted into Supabase, not GitHub. After uploading, the footer of the website should say "Portal v3".**
+**Version 4. To update the website, upload ONLY `index.html` to the GitHub repository (Add file > Upload files). The `supabase` folder is for reference: its files are pasted into Supabase, not GitHub. After uploading, the footer of the website should say "Portal v4".**
 
 ## What is in this package
 - `index.html`: the whole website (Home, Apply, parent dashboard, form, staff login, admin). It runs in **demo mode** until you fill in the Supabase keys.
@@ -66,3 +66,10 @@ Only upload photos of children if the school has given permission.
 4. Deploy a new function named exactly `application-mail`, pasting `supabase/functions/application-mail/index.ts`. Turn **Verify JWT off**, then save.
 5. Upload the new `index.html` to GitHub.
 6. In the admin page, open **Interview settings** and set the time, venue, how soon interviews start, the daily limit and the list of items to bring (confirm these with the school).
+
+## Version 4 changes (no database or function changes needed)
+- Apply buttons open the Create account page directly. Under the form: "Already have an account? Sign in", which opens a page with email and password only.
+- Create account has Password and Confirm password, a show/hide eye icon on all password fields, and an 8-character minimum.
+- Forgot password: link on the Sign in page, reset email, and a Set a new password screen.
+- The "How it works" steps and the fee are on the Home page.
+- Forgot password needs Supabase email sending to be set up (Authentication > SMTP settings, using Brevo's SMTP details) and the portal link in Authentication > URL Configuration > Redirect URLs.
