@@ -2,7 +2,7 @@
 
 Admission portal for Annoor International Islamic Academy, by SABORYN TECHNOLOGIES LIMITED.
 
-**Version 4. To update the website, upload ONLY `index.html` to the GitHub repository (Add file > Upload files). The `supabase` folder is for reference: its files are pasted into Supabase, not GitHub. After uploading, the footer of the website should say "Portal v4".**
+**Version 5. To update the website, upload ONLY `index.html` to the GitHub repository (Add file > Upload files). The `supabase` folder is for reference: its files are pasted into Supabase, not GitHub. After uploading, the footer of the website should say "Portal v5".**
 
 ## What is in this package
 - `index.html`: the whole website (Home, Apply, parent dashboard, form, staff login, admin). It runs in **demo mode** until you fill in the Supabase keys.
@@ -73,3 +73,9 @@ Only upload photos of children if the school has given permission.
 - Forgot password: link on the Sign in page, reset email, and a Set a new password screen.
 - The "How it works" steps and the fee are on the Home page.
 - Forgot password needs Supabase email sending to be set up (Authentication > SMTP settings, using Brevo's SMTP details) and the portal link in Authentication > URL Configuration > Redirect URLs.
+
+## Version 5 changes (do these in this order)
+1. Supabase > SQL Editor: run `supabase/update-2.sql` (registration numbers per class).
+2. Supabase > Edge Functions > `application-mail`: replace the code with the new `supabase/functions/application-mail/index.ts` and deploy.
+3. Upload the new `index.html` to GitHub. The footer should say "Portal v5".
+What changed: three-line menu (Home, Register, Sign in / Home, Dashboard, Log out with confirmation), Home photos stacked full width, admin search with status filter and details pop-up, and registration numbers per class such as ANR/2026/NUR1/0001.

@@ -102,7 +102,7 @@ Deno.serve(async (req: Request) => {
     let a = a0;
     if (action === 'approve') {
       if (a0.status === 'Approved') return json({ error: 'Already approved.' });
-      const reg = await admin.rpc('next_registration_no');
+      const reg = await admin.rpc('next_registration_no', { p_class: a0.class_applied });
       if (reg.error) throw new Error(reg.error.message);
       const date = await pickDate(admin, s);
       const up = await admin.from('applications').update({
